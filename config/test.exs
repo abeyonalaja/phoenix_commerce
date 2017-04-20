@@ -4,7 +4,7 @@ use Mix.Config
 # you can enable the server option below.
 config :phoenix_commerce, PhoenixCommerce.Endpoint,
   http: [port: 4001],
-  server: false
+  server: true
 
 # Print only warnings and errors during test
 config :logger, level: :warn
@@ -17,3 +17,9 @@ config :phoenix_commerce, PhoenixCommerce.Repo,
   database: "phoenix_commerce_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :hound,
+  driver: "chrome_driver",
+  app_host: "http://localhost",
+  app_port: 4001
+
