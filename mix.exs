@@ -19,17 +19,9 @@ defmodule PhoenixCommerce.Mixfile do
   def application do
     [
       mod: {PhoenixCommerce, []},
-      applications: applications(Mix.env)
+      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
+                     :phoenix_ecto, :postgrex]
     ]
-  end
-
-  def applications(:test) do
-    [:hound | applications(:dev)]
-  end
-
-  def applications(_) do
-    [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                   :phoenix_ecto, :postgrex]
   end
 
   # Specifies which paths to compile per environment.
@@ -48,7 +40,7 @@ defmodule PhoenixCommerce.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:hound, "~> 1.0", only: :test}
+     {:hound, "~> 1.0.3", only: :test}
     ]
   end
 
